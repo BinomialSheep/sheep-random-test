@@ -4,9 +4,9 @@
 # ファイル
 GENERATOR='./gens/bin/number.out'
 NAIVE='./sample/number_sum/naive.out'
-SMART='./sample/number_sum/smart_wa.out'
+SMART='./sample/number_sum/smart_ac.out'
 # テスト回数
-LOOP_COUNT=10
+LOOP_COUNT=100
 # WAが何回出たら停止するか
 STOP_THREASHOLD=2
 # ファイル出力オプション 1：ALL 2：WAのみ
