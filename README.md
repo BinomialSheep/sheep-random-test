@@ -17,6 +17,8 @@
     - プログラム内でassert(smartAns == naiveAns)のように判定してWAなら異常終了させる
 - 少数誤差や構築判定など、特殊なジャッジの場合
     - プログラム内でassert(judge())のように判定してWAなら異常終了させる
+- 大きな入力に対して実行時間計測してTLEしないかチェックしたい場合
+- 投げたらREが出た場合
 
 ## 用語
 - GENERATOR：ランダムテストの入力を生成するプログラム
@@ -25,13 +27,12 @@
     - 「愚直コード」も同様の意味で用いる
 - SMART：ランダムテストで正しさを検証したいプログラム
     - 「検証対象コード」も同様の意味で用いる
-- AC：Acceptedを意味する競プロ用語
-- WA：Wrong Answerを意味する競プロ用語
+- AC、WA、RE、TLE：[競プロのジャッジステータス用語](https://atcoder.jp/contests/abc074/glossary?lang=ja)から流用
 
 ### 実行手順
-1. 雑に権限を付ける（初回のみ）
+1. 実行権限を付与する（初回のみ）
 
-chmod 777 * -R
+`chmod +x random_test.sh`
 
 2. random_test.shのパラメータを変更する
 
@@ -54,11 +55,11 @@ WAを特定回数検出した時点で停止したい場合に使用する。停
 1, 2で1ファイルモードか2ファイルモードか切り替える。
 
 3. 実行する
-./random_test.sh
+`./random_test.sh`
 
 
 ### resultフォルダの一括削除
-find -name "result_*" -exec rm -rf {} \; 2>/dev/null
+`find -name "result_*" -exec rm -rf {} \; 2>/dev/null`
 
 
 ## future works
