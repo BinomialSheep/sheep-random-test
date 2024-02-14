@@ -29,37 +29,38 @@
     - 「検証対象コード」も同様の意味で用いる
 - AC、WA、RE、TLE：[競プロのジャッジステータス用語](https://atcoder.jp/contests/abc074/glossary?lang=ja)から流用
 
-### 実行手順
-#### 1. 実行権限を付与する（初回のみ）
+## 実行手順
+### 1. 実行権限を付与する（初回のみ）
 
 `chmod +x random_test.sh`
 
-#### 2. random_test.shのパラメータを変更する
+### 2. random_test.shのパラメータを変更する
 
 プログラム中のコメント通り。
 
-##### GENERATOR
+#### GENERATOR
 入力生成プログラムを指定する
-##### NAIVE
+#### NAIVE
 愚直プログラムを指定する。TEST_MODEが1の場合は実行されないので何でもよい
-##### SMART
+#### SMART
 検証対象コードを指定する
-##### LOOP_COUNT
+#### LOOP_COUNT
 ループ回数を指定する
-##### STOP_THREASHOLD
+#### STOP_THREASHOLD
 WAを特定回数検出した時点で停止したい場合に使用する。停止させる必要がなければLOOP_COUNTより大きい値を指定すればよい
-##### OUTPUT_MODE
+#### OUTPUT_MODE
 ファイル出力モードの切り替え。
 1を指定するとACでもWAでも出力し、2を指定するとWAのみ出力する。
-##### TEST_MODE
+#### TEST_MODE
 1, 2で1ファイルモードか2ファイルモードか切り替える。
 
-#### 3. 実行する
+### 3. 実行する
 
 `./random_test.sh`
 
+### その他よく使うコマンド
 
-### resultフォルダの一括削除
+#### resultフォルダの一括削除
 `find -name "result_*" -exec rm -rf {} \; 2>/dev/null`
 
 
