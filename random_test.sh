@@ -9,10 +9,10 @@ SMART='./sample/number_sum/smart_ac.out'
 LOOP_COUNT=100
 # WAが何回出たら停止するか
 STOP_THREASHOLD=2
-# ファイル出力オプション 1：ALL 2：WAのみ
-OUTPUT_OPTION=2
-# テスト方法 1：1ファイル 2：2ファイル
-TEST_OPTION=2
+# ファイル出力モード 1：ALL 2：WAのみ
+OUTPUT_MODE=2
+# テストモード 1：1ファイル 2：2ファイル
+TEST_MODE=2
 # ------------------------ 
 
 # フォルダ・ファイル準備
@@ -34,7 +34,7 @@ for i in $(seq -f '%04g' 1 ${LOOP_COUNT}); do
     # テストオプション1の場合は終了コードで判定する
     result=${?}
     # テストオプション2の場合は愚直コードとの等価性判定
-    if [[ ${TEST_OPTION} = 2 ]]; then
+    if [[ ${TEST_MODE} = 2 ]]; then
         # 愚直コードとの等価性比較
         eval ${NAIVE} < ${RESULT_FOLDER}/${i}_input > ${RESULT_FOLDER}/${i}_expected
         result=$(diff --brief ${RESULT_FOLDER}/${i}_expected ${RESULT_FOLDER}/${i}_output)
@@ -55,7 +55,7 @@ for i in $(seq -f '%04g' 1 ${LOOP_COUNT}); do
             break
         fi
     # ACの入出力を保存しないオプションの場合
-    elif [[ ${OUTPUT_OPTION} = 2 ]]; then
+    elif [[ ${OUTPUT_MODE} = 2 ]]; then
         rm -f ${RESULT_FOLDER}/${i}_*
     fi
 done
