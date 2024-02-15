@@ -8,7 +8,7 @@ const double EPS = 1e-6;
 bool epsEqual(double a, double b) {
   // 絶対誤差
   if (fabs(a - b) < EPS) return true;
-  // 0除算回避（多分上で回避できてるけど）
+  // 0除算回避
   if (a == 0) return fabs(b) < EPS;
   // 相対誤差
   return fabs((a - b) / a) < EPS;
@@ -26,14 +26,13 @@ int main() {
     double rect = f(i / N) * (1 / N);
     S += rect;
   }
+  // Nが1e5で3.1416126164、Nが1e6で3.1415946524くらいになる
   double ans = S * 4;
 
   cout << fixed << setprecision(10) << ans << endl;
 
-  assert(epsEqual(ans, 3.14159265));
-
-  // Nが1e5で3.1416126164、Nが1e6で3.1415946524。
   // EPS=1e-6だと前者がnot equal, 後者がequal
+  assert(epsEqual(ans, 3.14159265));
 
   return 0;
 }
